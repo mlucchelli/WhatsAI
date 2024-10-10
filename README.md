@@ -85,7 +85,10 @@ This app relies on environment variables to configure file paths and processing 
 
 All the necesary code to train your Bot is in the `training.ipynb` file.
 Just run each cell in order.
-If you want to play and fine tune your model, you can execute only the require cells. (Ensuring you add the requires imports)
+If you want to play and fine tune your model, you can execute only the require cells. (Ensuring you add the required imports)
+
+> **⚠️ Alert**
+>You can download your friends' chat history by following this [guide](https://faq.whatsapp.com/1180414079177245/?locale=et_EE&cms_platform=android)
 
 ### Step 1: Clean Chats
 - Remove blank lines and unnecessary spaces from chat records.
