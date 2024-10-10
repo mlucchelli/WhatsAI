@@ -1,0 +1,7 @@
+transformers[torch]
+torch
+streamlit
+python-dotenv
+sentencepiece
+numpy
+pandas
