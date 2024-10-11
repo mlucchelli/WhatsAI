@@ -13,6 +13,7 @@ This application processes WhatsApp chat logs by cleaning up messages and genera
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Configuration](#configuration)
+- [Preparing Conversations for Training](#preparing-conversations-for-training)
 - [Training](#training)
 - [Training Monitoring](#training-monitoring)
 - [ChatBot UI](#chatbot-ui)
@@ -81,6 +82,24 @@ This app relies on environment variables to configure file paths and processing 
 - `CLON_NAME`: The name of the bot or the user whose messages are the "output".
 - `CONVERSATION_DURATION`: The duration in hours to separate conversations.
 
+## Preparing Conversations for Training
+
+The application processes cleaned WhatsApp chat logs to create structured `input`-`output` conversation pairs suitable for training conversational models. These conversations are saved in CSV format, with each row representing a dialogue exchange between two parties.
+
+### Conversation Format
+
+The chat logs are processed line by line, converting each message into input-output pairs. Conversations are segmented based on time intervals defined by the `CONVERSATION_DURATION` environment variable. If the duration between messages exceeds the specified time window, the conversation is considered to have ended, and a new conversation begins.
+
+### Steps for Conversation Preparation
+
+1. **Message Filtering**: The program first removes any unwanted content such as media placeholders (e.g., "audio omitted", "video omitted") and system messages.
+   
+2. **Segmentation**: The script accumulates messages from participants, separating dialogues between the user and the bot (or any specified user). Conversations are grouped by duration using the `CONVERSATION_DURATION` setting.
+
+3. **Pairing**: For each conversation, the user's input is paired with the bot's output (or vice versa), depending on who is speaking. The output is attributed to the user specified by the `CLON_NAME` environment variable.
+
+4. **CSV Output**: The resulting input-output pairs are saved in a CSV file specified by the `CONVERSATION_CHAT_FILE` environment variable. Each row in the CSV file follows this structure:
+   
 ## Training
 
 All the necesary code to train your Bot is in the `training.ipynb` file.
