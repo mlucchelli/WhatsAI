@@ -24,7 +24,7 @@ if prompt := st.chat_input("Hola"):
         st.markdown(prompt)
 
     # Retrieve only the last 10 messages from the history
-    history = st.session_state.messages[-10:]
+    history = []#st.session_state.messages[-10:]
 
     # Generate assistant response using the chat model
     assistant_response = chat_model.generate_response(

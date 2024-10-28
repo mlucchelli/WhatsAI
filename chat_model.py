@@ -24,7 +24,7 @@ class ChatModel:
             self.model.to('cuda')
 
     # Function to generate a response
-    def generate_response(self, prompt, history=None, max_length=200, num_return_sequences=1, temperature=0.9, top_k=50, top_p=0.9):
+    def generate_response(self, prompt, history=None, max_length=200, num_return_sequences=1, temperature=0.8, top_k=50, top_p=0.9):
         # If there is a message history, concatenate it
         if history:
             context = " ".join([f"{msg['role']}: {msg['content']}" for msg in history])

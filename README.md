@@ -80,6 +80,7 @@ This app relies on environment variables to configure file paths and processing 
 - `CONVERSATION_CHAT_FILE`: The path where the final CSV with conversation pairs will be saved.
 - `CLON_NAME`: The name of the bot or the user whose messages are the "output".
 - `CONVERSATION_DURATION`: The duration in hours to separate conversations.
+- `HF_TOKEN`: The Secret token for huggingface.
 
 ## Training
 
